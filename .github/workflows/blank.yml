@@ -26,7 +26,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: octokit/request-action@v2.x
+      
       - name: count commmits
         id: github_compare
         uses: octokit/request-action@v2.x

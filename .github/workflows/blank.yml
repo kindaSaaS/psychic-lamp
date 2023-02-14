@@ -27,14 +27,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: octokit/request-action@v2.x
-        id: add_pr_comment
+      - name: count commmits
+        id: github_compare
+        uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/:repository/issues/:issue_number/comments
-          repository: ${{ github.repository }}
-          issue_number: ${{ github.event.number }}
-          body: A test comment
+          route: GET /repos/:repository/compare/:base...:head
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_REPOSITORY: ${{ github.repository }}
+          INPUT_BASE: ${{ github.base_ref }}
+          INPUT_HEAD: ${{ github.ref }}
       # LALALA  
       - name: Dump Github context
         env:

